@@ -42,7 +42,7 @@ typedef PolymodAssetsParams =
 	/**
 	 * the Haxe framework you're using (OpenFL, HEAPS, Kha, NME, etc..)
 	 */
-	framework:polymod.Framework,
+	framework:polymod.Polymod.Framework,
 
 	/**
 	 * the file system to use to access mods.
@@ -104,7 +104,6 @@ class PolymodAssets
 		{
 			case CASTLE: new polymod.backends.CastleBackend();
 			case NME: new polymod.backends.NMEBackend();
-			case FLIXEL: new polymod.backends.FlixelBackend();
 			case OPENFL: new polymod.backends.OpenFLBackend();
 			case OPENFL_WITH_NODE: new polymod.backends.OpenFLWithNodeBackend();
 			case LIME: new polymod.backends.LimeBackend();
@@ -131,10 +130,10 @@ class PolymodAssets
 		#if firetongue
 		if (params.firetongue != null)
 		{
-			if (framework == Framework.NME
-				|| framework == Framework.HEAPS
-				|| framework == Framework.KHA
-				|| framework == Framework.CASTLE)
+			if (framework == polymod.Polymod.Framework.NME
+				|| framework == polymod.Polymod.Framework.HEAPS
+				|| framework == polymod.Polymod.Framework.KHA
+				|| framework == polymod.Polymod.Framework.CASTLE)
 			{
 				Polymod.error(PolymodErrorCode.FUNCTIONALITY_NOT_IMPLEMENTED,
 					'Polymod currently does not support FireTongue localization for ${framework}! Nag us on GitHub about it.');
